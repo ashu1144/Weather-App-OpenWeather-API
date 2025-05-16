@@ -26,6 +26,14 @@ async function checkWeather(params) {
 
     }
     data  =  await response.json();
+
+     setWeather()
+
+        document.querySelector(".city").innerText = data.name;
+        document.querySelector(".temp").innerText=`${Math.floor(data.main.temp)}°C`
+        document.querySelector(".humidity").innerText=`${data.main.humidity}`       
+        document.querySelector(".wind").innerText=`${data.wind.speed}km/h`.toUpperCase();
+        document.querySelector("#deg").innerText=`Deg:${data.wind.deg}`
     
 }
 
@@ -50,16 +58,7 @@ const setWeather = ()=>{
 
 search.addEventListener("click", function() {
     checkWeather()
-    setTimeout(() => {
-        setWeather()
-        document.querySelector(".city").innerText = data.name;
-        document.querySelector(".temp").innerText=`${Math.floor(data.main.temp)}°C`
-        document.querySelector(".humidity").innerText=`${data.main.humidity}`       
-        document.querySelector(".wind").innerText=`${data.wind.speed}km/h`.toUpperCase();
-        document.querySelector("#deg").innerText=`Deg:${data.wind.deg}`
-    }, 1000);
-
-
+       
   });
 
 
